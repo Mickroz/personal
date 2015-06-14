@@ -1,0 +1,9 @@
+#!/bin/sh
+# Automatically tag the last commit.
+DATE=$(date +"wiki-%m-%d-%Y_%H%M%S")
+LAST_COMM=$(git rev-parse --short HEAD)
+
+echo tagging last commit: $LAST_COMM ...
+git tag -a $DATE -m "Auto-tagged: $LAST_COMM with datestamp on push to prod" $LAST_COMM
+echo tagged $LAST_COMM!
+echo $LAST_COMM > version

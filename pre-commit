@@ -1,0 +1,8 @@
+#!/bin/sh
+# Automatically tag the last commit.
+LAST_COMM=$(git rev-parse HEAD)
+
+echo writing last commit to file: $LAST_COMM ...
+echo $LAST_COMM > version
+/opt/bin/git add version
+echo Done
